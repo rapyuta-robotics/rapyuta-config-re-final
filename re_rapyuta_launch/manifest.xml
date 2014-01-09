@@ -1,0 +1,14 @@
+<package>
+  <description brief="re_rapyuta_launch">
+
+     re_rapyuta_launch
+
+  </description>
+  <author>Dominique Hunziker</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/re_rapyuta_launch</url>
+
+</package>
+
+
