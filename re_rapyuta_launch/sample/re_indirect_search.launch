@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+
+<launch>
+    <node pkg="re_rapyuta_launch" type="rapyuta_launch.py" name="rapyuta_client" respawn="false" output="screen" args="$(find re_rapyuta_launch)/../tests/re_indirect_search.cfg" /> 
+</launch>

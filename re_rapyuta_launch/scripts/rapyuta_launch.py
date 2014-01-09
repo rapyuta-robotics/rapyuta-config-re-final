@@ -34,6 +34,9 @@
 # Python specific imports
 import json
 
+# ROS specific imports
+import rospy
+
 # Custom imports
 from rce.client.ros import main
 
@@ -55,7 +58,7 @@ def _get_argparse():
 if __name__ == '__main__':
     from twisted.internet import reactor
 
-    args = _get_argparse().parse_args()
+    args = _get_argparse().parse_args(rospy.myargv()[1:])
     fh = args.config
 
     try:
