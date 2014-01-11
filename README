@@ -1,1 +1,48 @@
 Configuration files used for the RoboEarth final demonstrator.
+
+== Setup ==
+
+=== Sources ===
+
+    svn co https://ipvs.informatik.uni-stuttgart.de/roboearth/repos/ros_roboearth
+    
+    svn co https://roboticssrv.wtb.tue.nl/svn/ros/code/tue-ros-pkg/trunk/wire
+    svn co https://roboticssrv.wtb.tue.nl/svn/ros/code/tue-ros-pkg/trunk/wire_jpl
+    svn co https://roboticssrv.wtb.tue.nl/svn/ros/code/tue-ros-pkg/trunk/psi_toolkit
+    svn co https://roboticssrv.wtb.tue.nl/svn/ros/code/tue-ros-pkg/trunk/psi_jpl
+    svn co https://roboticssrv.wtb.tue.nl/svn/ros/code/tue-ros-pkg/trunk/tue_utils/code_profiler
+    svn co https://roboticssrv.wtb.tue.nl/svn/ros/code/tue-ros-pkg/trunk/tue_reasoner/tue_reasoner_core
+    
+    git clone https://github.com/knowrob/knowrob.git
+    git clone https://github.com/ddimarco/cram_core.git
+    git clone https://github.com/ddimarco/cram_highlevel.git
+
+
+=== Dependencies ===
+
+    apt-get install swi-prolog swi-prolog-odbc libjson-java wget autoconf
+    apt-get install python-rosdep ros-fuerte-geometry ros-fuerte-client-rosjava-jni ros-fuerte-roslisp-common ros-fuerte-pluginlib ros-fuerte-robot-model ros-fuerte-octomap-ros
+    rosdep install armadillo_matrix problib
+
+
+=== Patch ===
+
+    patches/re_2dmap_extractor.patch
+
+
+=== rosmake ===
+
+    rosmake wire re_comm re_cpl_gen re_2dmap_extractor
+
+=== Tests ===
+
+==== wire ====
+
+    rosrun wire_interface test_assert /wire_test/result
+    rosrun wire_interface test_query /wire_test/result
+
+
+==== re_cpl_gen ====
+
+    rosservice call /cpl_plan_generate '{start_task: {task_id: "http://www.roboearth.org/kb/roboearth.owl#RobotEnvironmentExploration"}, robotURL: "http://www.roboearth.org/kb/amigo.owl#AmigoRobot1"}' 
+
