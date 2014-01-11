@@ -38,7 +38,7 @@ Configuration files used for the RoboEarth final demonstrator.
 
 ==== wire ====
 
-    rosrun wire_interface test_assert /wire_test/result
+    rosrun wire_interface test_assert
     rosrun wire_interface test_query /wire_test/result
 
 
