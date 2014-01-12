@@ -29,17 +29,10 @@ rosdep install armadillo_matrix problib
 </pre>
 
 
-=== Patch ===
-
-<pre>
-patches/re_2dmap_extractor.patch
-</pre>
-
-
 === rosmake ===
 
 <pre>
-rosmake wire re_comm re_cpl_gen re_2dmap_extractor srdl_pose_extractor
+rosmake wire re_indirect_search re_comm re_cpl_gen re_grammar_generator re_2dmap_extractor srdl_pose_extractor
 </pre>
 
 
@@ -53,6 +46,15 @@ rosrun wire_interface test_query /wire_test/result
 </pre>
 
 
+=== re_indirect_search ===
+
+<pre>
+rosrun re_indirect_search learning_test.py
+rosrun re_indirect_search sample-inference.py
+rosrun re_indirect_search single-sample-learning.py
+</pre>
+
+
 === re_cpl_gen ===
 
 <pre>
@@ -60,10 +62,18 @@ rosservice call /cpl_plan_generate '{start_task: {task_id: "http://www.roboearth
 </pre>
 
 
+=== re_grammar_generator ===
+
+<pre>
+rosservice call /re_grammar_generator/get_grammar
+</pre>
+
+
 === re_2dmap_extractor ===
 
 <pre>
-TBA
+rosmake test_re_2dmap_extractor
+rosrun test_re_2dmap_extractor run
 </pre>
 
 
