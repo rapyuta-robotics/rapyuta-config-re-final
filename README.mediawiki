@@ -80,5 +80,6 @@ rosrun test_re_2dmap_extractor run
 === srdl_pose_extractor ===
 
 <pre>
-TBA
+rosmake test_srdl_pose_extractor
+rosrun test_srdl_pose_extractor run
 </pre>
