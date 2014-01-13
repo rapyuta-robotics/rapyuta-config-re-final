@@ -42,7 +42,7 @@ rosmake wire re_indirect_search re_comm re_cpl_gen re_grammar_generator re_2dmap
 
 <pre>
 rosrun wire_interface test_assert
-rosrun wire_interface test_query /wire_test/result
+rosrun wire_interface test_query
 </pre>
 
 
